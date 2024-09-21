@@ -8,8 +8,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def get_chatgpt_response(user_input):
     try:
         logging.info(f"Sending request to OpenAI API: {user_input}")
-        # OpenAI APIの正しいエンドポイントを使用
-        response = openai.ChatCompletion.create(
+        # OpenAI API v1.0.0以降の新しいエンドポイントを使用
+        response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "あなたは有能なアシスタントです。"},
