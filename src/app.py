@@ -3,7 +3,7 @@ import logging
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from dotenv import load_dotenv
-from src.chatbot_engine import get_chatgpt_response
+from chatbot_engine import get_chatgpt_response
 
 # 環境変数の読み込み
 load_dotenv()
