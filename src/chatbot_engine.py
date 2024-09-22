@@ -8,8 +8,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 def get_chatgpt_response(user_input):
     try:
         logging.info(f"Sending request to OpenAI API: {user_input}")
-        # OpenAI API v1.0.0以降の新しいエンドポイントを使用
-        response = openai.chat.completions.create(
+        # OpenAI APIの最新エンドポイントを使用
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "あなたは有能なアシスタントです。"},
@@ -19,7 +19,7 @@ def get_chatgpt_response(user_input):
             temperature=0.7,
         )
         # 応答を取得
-        answer = response.choices[0].message.content.strip()
+        answer = response.choices[0].message['content'].strip()
         logging.info(f"Received response from OpenAI API: {answer}")
         return answer
     except Exception as e:
